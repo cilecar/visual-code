@@ -1,0 +1,37 @@
+{
+  "id": "math.random",
+  "title": "Random",
+  "category": "math",
+  "icon": "dices",
+  "kind": "pure",
+  "impure": true,
+  "imports": [
+    "random"
+  ],
+  "description": "Случайное целое число в диапазоне [min, max].",
+  "inputs": [
+    {
+      "id": "min",
+      "type": "number",
+      "label": "Min",
+      "default": 1
+    },
+    {
+      "id": "max",
+      "type": "number",
+      "label": "Max",
+      "default": 100
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "number",
+      "int": true
+    }
+  ],
+  "expr": {
+    "result": "random.randint({int.min}, {int.max})"
+  },
+  "params": []
+}

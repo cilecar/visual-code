@@ -1,0 +1,1134 @@
+{
+  "format": "nodus",
+  "schemaVersion": 1,
+  "name": "Учёт расходов",
+  "description": "Вводите траты, а программа посчитает итоги и сохранит отчёт в файл.",
+  "variables": [
+    {
+      "name": "running",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "name": "amount",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "total",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "biggest",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "report",
+      "type": "string",
+      "value": ""
+    }
+  ],
+  "functions": [],
+  "main": {
+    "nodes": [
+      {
+        "id": "c1",
+        "type": "comment",
+        "position": {
+          "x": 480,
+          "y": -300
+        },
+        "width": 3180,
+        "height": 700,
+        "data": {
+          "title": "Цикл ввода: сумма → категория → обновить итоги",
+          "color": "#30a46c"
+        }
+      },
+      {
+        "id": "c2",
+        "type": "comment",
+        "position": {
+          "x": 20,
+          "y": 620
+        },
+        "width": 2020,
+        "height": 720,
+        "data": {
+          "title": "Итоги и сохранение отчёта",
+          "color": "#0090ff"
+        }
+      },
+      {
+        "id": "n1",
+        "type": "block",
+        "position": {
+          "x": -300,
+          "y": 0
+        },
+        "data": {
+          "block": "event.start",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n2",
+        "type": "block",
+        "position": {
+          "x": -60,
+          "y": 0
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {
+            "value": "Учёт расходов. Пустая строка — закончить ввод."
+          }
+        }
+      },
+      {
+        "id": "n3",
+        "type": "block",
+        "position": {
+          "x": 200,
+          "y": 170
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "running"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n4",
+        "type": "block",
+        "position": {
+          "x": 260,
+          "y": 0
+        },
+        "data": {
+          "block": "flow.while",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n5",
+        "type": "block",
+        "position": {
+          "x": 520,
+          "y": 0
+        },
+        "data": {
+          "block": "io.input",
+          "params": {},
+          "inputs": {
+            "prompt": "Сумма: "
+          }
+        }
+      },
+      {
+        "id": "n6",
+        "type": "block",
+        "position": {
+          "x": 520,
+          "y": 170
+        },
+        "data": {
+          "block": "str.length",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n7",
+        "type": "block",
+        "position": {
+          "x": 760,
+          "y": 170
+        },
+        "data": {
+          "block": "math.compare",
+          "params": {
+            "op": "=="
+          },
+          "inputs": {
+            "b": 0
+          }
+        }
+      },
+      {
+        "id": "n8",
+        "type": "block",
+        "position": {
+          "x": 1000,
+          "y": 0
+        },
+        "data": {
+          "block": "flow.if",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n9",
+        "type": "block",
+        "position": {
+          "x": 1000,
+          "y": -230
+        },
+        "data": {
+          "block": "lit.bool",
+          "params": {
+            "value": false
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n10",
+        "type": "block",
+        "position": {
+          "x": 1260,
+          "y": -200
+        },
+        "data": {
+          "block": "var.set",
+          "params": {
+            "var": "running"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n11",
+        "type": "block",
+        "position": {
+          "x": 1000,
+          "y": 300
+        },
+        "data": {
+          "block": "conv.to_number",
+          "params": {
+            "mode": "float"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n12",
+        "type": "block",
+        "position": {
+          "x": 1260,
+          "y": 60
+        },
+        "data": {
+          "block": "var.set",
+          "params": {
+            "var": "amount"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n13",
+        "type": "block",
+        "position": {
+          "x": 1500,
+          "y": 60
+        },
+        "data": {
+          "block": "io.input",
+          "params": {},
+          "inputs": {
+            "prompt": "На что: "
+          }
+        }
+      },
+      {
+        "id": "n14",
+        "type": "block",
+        "position": {
+          "x": 1740,
+          "y": 240
+        },
+        "data": {
+          "block": "math.add",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n15",
+        "type": "block",
+        "position": {
+          "x": 1520,
+          "y": 220
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "total"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n16",
+        "type": "block",
+        "position": {
+          "x": 1520,
+          "y": 320
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "amount"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n17",
+        "type": "block",
+        "position": {
+          "x": 1980,
+          "y": 60
+        },
+        "data": {
+          "block": "var.set",
+          "params": {
+            "var": "total"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n18",
+        "type": "block",
+        "position": {
+          "x": 2200,
+          "y": 240
+        },
+        "data": {
+          "block": "math.add",
+          "params": {},
+          "inputs": {
+            "b": 1
+          }
+        }
+      },
+      {
+        "id": "n19",
+        "type": "block",
+        "position": {
+          "x": 1990,
+          "y": 240
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "count"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n20",
+        "type": "block",
+        "position": {
+          "x": 2440,
+          "y": 60
+        },
+        "data": {
+          "block": "var.set",
+          "params": {
+            "var": "count"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n21",
+        "type": "block",
+        "position": {
+          "x": 2680,
+          "y": 60
+        },
+        "data": {
+          "block": "flow.sequence",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n22",
+        "type": "block",
+        "position": {
+          "x": 2900,
+          "y": -120
+        },
+        "data": {
+          "block": "math.compare",
+          "params": {
+            "op": ">"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n23",
+        "type": "block",
+        "position": {
+          "x": 2700,
+          "y": -170
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "amount"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n24",
+        "type": "block",
+        "position": {
+          "x": 2700,
+          "y": -70
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "biggest"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n25",
+        "type": "block",
+        "position": {
+          "x": 3140,
+          "y": -60
+        },
+        "data": {
+          "block": "flow.if",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n26",
+        "type": "block",
+        "position": {
+          "x": 3380,
+          "y": -60
+        },
+        "data": {
+          "block": "var.set",
+          "params": {
+            "var": "biggest"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n27",
+        "type": "block",
+        "position": {
+          "x": 3140,
+          "y": -200
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "amount"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n28",
+        "type": "block",
+        "position": {
+          "x": 2900,
+          "y": 330
+        },
+        "data": {
+          "block": "str.format",
+          "params": {
+            "count": 2
+          },
+          "inputs": {
+            "template": "{0:>10.2f}  {1}\n"
+          }
+        }
+      },
+      {
+        "id": "n29",
+        "type": "block",
+        "position": {
+          "x": 2700,
+          "y": 300
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "amount"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n30",
+        "type": "block",
+        "position": {
+          "x": 3140,
+          "y": 260
+        },
+        "data": {
+          "block": "str.concat",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n31",
+        "type": "block",
+        "position": {
+          "x": 2900,
+          "y": 220
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "report"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n32",
+        "type": "block",
+        "position": {
+          "x": 3380,
+          "y": 140
+        },
+        "data": {
+          "block": "var.set",
+          "params": {
+            "var": "report"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n33",
+        "type": "block",
+        "position": {
+          "x": 260,
+          "y": 870
+        },
+        "data": {
+          "block": "math.compare",
+          "params": {
+            "op": ">"
+          },
+          "inputs": {
+            "b": 0
+          }
+        }
+      },
+      {
+        "id": "n34",
+        "type": "block",
+        "position": {
+          "x": 60,
+          "y": 870
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "count"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n35",
+        "type": "block",
+        "position": {
+          "x": 520,
+          "y": 700
+        },
+        "data": {
+          "block": "flow.if",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n36",
+        "type": "block",
+        "position": {
+          "x": 780,
+          "y": 920
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {
+            "value": "Ничего не записано."
+          }
+        }
+      },
+      {
+        "id": "n37",
+        "type": "block",
+        "position": {
+          "x": 780,
+          "y": 1120
+        },
+        "data": {
+          "block": "math.div",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n38",
+        "type": "block",
+        "position": {
+          "x": 560,
+          "y": 1100
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "total"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n39",
+        "type": "block",
+        "position": {
+          "x": 560,
+          "y": 1200
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "count"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n40",
+        "type": "block",
+        "position": {
+          "x": 1040,
+          "y": 1000
+        },
+        "data": {
+          "block": "str.format",
+          "params": {
+            "count": 4
+          },
+          "inputs": {
+            "template": "\nЗаписей: {0}\nВсего потрачено: {1:.2f}\nСредняя трата: {2:.2f}\nСамая крупная: {3:.2f}"
+          }
+        }
+      },
+      {
+        "id": "n41",
+        "type": "block",
+        "position": {
+          "x": 780,
+          "y": 960
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "count"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n42",
+        "type": "block",
+        "position": {
+          "x": 780,
+          "y": 1030
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "total"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n43",
+        "type": "block",
+        "position": {
+          "x": 780,
+          "y": 1240
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "biggest"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n44",
+        "type": "block",
+        "position": {
+          "x": 780,
+          "y": 700
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n45",
+        "type": "block",
+        "position": {
+          "x": 1300,
+          "y": 900
+        },
+        "data": {
+          "block": "str.concat",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n46",
+        "type": "block",
+        "position": {
+          "x": 1040,
+          "y": 880
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "report"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n47",
+        "type": "block",
+        "position": {
+          "x": 1540,
+          "y": 700
+        },
+        "data": {
+          "block": "io.write_file",
+          "params": {},
+          "inputs": {
+            "path": "расходы.txt"
+          }
+        }
+      },
+      {
+        "id": "n48",
+        "type": "block",
+        "position": {
+          "x": 1800,
+          "y": 700
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {
+            "value": "Отчёт сохранён в файл расходы.txt"
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "n1",
+        "sourceHandle": "out:then",
+        "target": "n2",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e2",
+        "source": "n2",
+        "sourceHandle": "out:then",
+        "target": "n4",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e3",
+        "source": "n3",
+        "sourceHandle": "out:value",
+        "target": "n4",
+        "targetHandle": "in:cond"
+      },
+      {
+        "id": "e4",
+        "source": "n4",
+        "sourceHandle": "out:body",
+        "target": "n5",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e5",
+        "source": "n5",
+        "sourceHandle": "out:text",
+        "target": "n6",
+        "targetHandle": "in:text"
+      },
+      {
+        "id": "e6",
+        "source": "n6",
+        "sourceHandle": "out:result",
+        "target": "n7",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e7",
+        "source": "n7",
+        "sourceHandle": "out:result",
+        "target": "n8",
+        "targetHandle": "in:cond"
+      },
+      {
+        "id": "e8",
+        "source": "n5",
+        "sourceHandle": "out:then",
+        "target": "n8",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e9",
+        "source": "n8",
+        "sourceHandle": "out:true",
+        "target": "n10",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e10",
+        "source": "n9",
+        "sourceHandle": "out:value",
+        "target": "n10",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e11",
+        "source": "n8",
+        "sourceHandle": "out:false",
+        "target": "n12",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e12",
+        "source": "n5",
+        "sourceHandle": "out:text",
+        "target": "n11",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e13",
+        "source": "n11",
+        "sourceHandle": "out:result",
+        "target": "n12",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e14",
+        "source": "n12",
+        "sourceHandle": "out:then",
+        "target": "n13",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e15",
+        "source": "n15",
+        "sourceHandle": "out:value",
+        "target": "n14",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e16",
+        "source": "n16",
+        "sourceHandle": "out:value",
+        "target": "n14",
+        "targetHandle": "in:b"
+      },
+      {
+        "id": "e17",
+        "source": "n13",
+        "sourceHandle": "out:then",
+        "target": "n17",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e18",
+        "source": "n14",
+        "sourceHandle": "out:result",
+        "target": "n17",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e19",
+        "source": "n19",
+        "sourceHandle": "out:value",
+        "target": "n18",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e20",
+        "source": "n17",
+        "sourceHandle": "out:then",
+        "target": "n20",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e21",
+        "source": "n18",
+        "sourceHandle": "out:result",
+        "target": "n20",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e22",
+        "source": "n20",
+        "sourceHandle": "out:then",
+        "target": "n21",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e23",
+        "source": "n23",
+        "sourceHandle": "out:value",
+        "target": "n22",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e24",
+        "source": "n24",
+        "sourceHandle": "out:value",
+        "target": "n22",
+        "targetHandle": "in:b"
+      },
+      {
+        "id": "e25",
+        "source": "n21",
+        "sourceHandle": "out:then0",
+        "target": "n25",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e26",
+        "source": "n22",
+        "sourceHandle": "out:result",
+        "target": "n25",
+        "targetHandle": "in:cond"
+      },
+      {
+        "id": "e27",
+        "source": "n25",
+        "sourceHandle": "out:true",
+        "target": "n26",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e28",
+        "source": "n27",
+        "sourceHandle": "out:value",
+        "target": "n26",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e29",
+        "source": "n29",
+        "sourceHandle": "out:value",
+        "target": "n28",
+        "targetHandle": "in:arg0"
+      },
+      {
+        "id": "e30",
+        "source": "n13",
+        "sourceHandle": "out:text",
+        "target": "n28",
+        "targetHandle": "in:arg1"
+      },
+      {
+        "id": "e31",
+        "source": "n31",
+        "sourceHandle": "out:value",
+        "target": "n30",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e32",
+        "source": "n28",
+        "sourceHandle": "out:result",
+        "target": "n30",
+        "targetHandle": "in:b"
+      },
+      {
+        "id": "e33",
+        "source": "n21",
+        "sourceHandle": "out:then1",
+        "target": "n32",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e34",
+        "source": "n30",
+        "sourceHandle": "out:result",
+        "target": "n32",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e35",
+        "source": "n34",
+        "sourceHandle": "out:value",
+        "target": "n33",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e36",
+        "source": "n4",
+        "sourceHandle": "out:done",
+        "target": "n35",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e37",
+        "source": "n33",
+        "sourceHandle": "out:result",
+        "target": "n35",
+        "targetHandle": "in:cond"
+      },
+      {
+        "id": "e38",
+        "source": "n35",
+        "sourceHandle": "out:false",
+        "target": "n36",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e39",
+        "source": "n38",
+        "sourceHandle": "out:value",
+        "target": "n37",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e40",
+        "source": "n39",
+        "sourceHandle": "out:value",
+        "target": "n37",
+        "targetHandle": "in:b"
+      },
+      {
+        "id": "e41",
+        "source": "n41",
+        "sourceHandle": "out:value",
+        "target": "n40",
+        "targetHandle": "in:arg0"
+      },
+      {
+        "id": "e42",
+        "source": "n42",
+        "sourceHandle": "out:value",
+        "target": "n40",
+        "targetHandle": "in:arg1"
+      },
+      {
+        "id": "e43",
+        "source": "n37",
+        "sourceHandle": "out:result",
+        "target": "n40",
+        "targetHandle": "in:arg2"
+      },
+      {
+        "id": "e44",
+        "source": "n43",
+        "sourceHandle": "out:value",
+        "target": "n40",
+        "targetHandle": "in:arg3"
+      },
+      {
+        "id": "e45",
+        "source": "n35",
+        "sourceHandle": "out:true",
+        "target": "n44",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e46",
+        "source": "n40",
+        "sourceHandle": "out:result",
+        "target": "n44",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e47",
+        "source": "n46",
+        "sourceHandle": "out:value",
+        "target": "n45",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e48",
+        "source": "n40",
+        "sourceHandle": "out:result",
+        "target": "n45",
+        "targetHandle": "in:b"
+      },
+      {
+        "id": "e49",
+        "source": "n44",
+        "sourceHandle": "out:then",
+        "target": "n47",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e50",
+        "source": "n45",
+        "sourceHandle": "out:result",
+        "target": "n47",
+        "targetHandle": "in:content"
+      },
+      {
+        "id": "e51",
+        "source": "n47",
+        "sourceHandle": "out:then",
+        "target": "n48",
+        "targetHandle": "in:exec"
+      }
+    ]
+  }
+}

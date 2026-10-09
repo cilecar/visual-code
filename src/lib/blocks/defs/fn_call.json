@@ -1,0 +1,30 @@
+{
+  "id": "fn.call",
+  "title": "Function",
+  "category": "functions",
+  "icon": "square-function",
+  "kind": "exec",
+  "dynamic": "function",
+  "hidden": true,
+  "params": [
+    {
+      "id": "fn",
+      "type": "string",
+      "label": "Функция"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    }
+  ],
+  "code": "{call}\n{exec.then}"
+}

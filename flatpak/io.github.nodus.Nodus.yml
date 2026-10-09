@@ -1,0 +1,55 @@
+# Flatpak manifest for Nodus.
+#
+# Packages the release binary produced by `npm run tauri build` (the frontend
+# is embedded in it). Build:
+#
+#   npm run tauri build -- --no-bundle
+#   flatpak-builder --user --install --force-clean flatpak/build-dir flatpak/io.github.nodus.Nodus.yml
+#   flatpak run io.github.nodus.Nodus
+#
+# For a fully offline from-source build (Flathub), see README → Flatpak.
+id: io.github.nodus.Nodus
+# The GNOME runtime provides WebKitGTK 4.1 (needed by Tauri 2) and python3
+# (needed to run generated programs).
+runtime: org.gnome.Platform
+runtime-version: '49'
+sdk: org.gnome.Sdk
+command: nodus
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --device=dri
+  # open/save .blk files anywhere; Read File / Write File blocks work relative to the graph
+  - --filesystem=home
+  # user blocks: ~/.local/share/nodus/blocks
+  - --filesystem=~/.local/share/nodus:create
+modules:
+  - name: nodus
+    buildsystem: simple
+    sources:
+      - type: file
+        path: ../src-tauri/target/release/nodus
+      - type: file
+        path: io.github.nodus.Nodus.desktop
+      - type: file
+        path: io.github.nodus.Nodus.metainfo.xml
+      - type: file
+        path: io.github.nodus.Nodus.mime.xml
+      - type: file
+        path: ../src-tauri/icons/32x32.png
+      - type: file
+        path: ../src-tauri/icons/128x128.png
+      - type: file
+        path: ../src-tauri/icons/icon.png
+      - type: file
+        path: ../app-icon.svg
+    build-commands:
+      - install -Dm755 nodus /app/bin/nodus
+      - install -Dm644 io.github.nodus.Nodus.desktop /app/share/applications/io.github.nodus.Nodus.desktop
+      - install -Dm644 io.github.nodus.Nodus.metainfo.xml /app/share/metainfo/io.github.nodus.Nodus.metainfo.xml
+      - install -Dm644 io.github.nodus.Nodus.mime.xml /app/share/mime/packages/io.github.nodus.Nodus.xml
+      - install -Dm644 32x32.png /app/share/icons/hicolor/32x32/apps/io.github.nodus.Nodus.png
+      - install -Dm644 128x128.png /app/share/icons/hicolor/128x128/apps/io.github.nodus.Nodus.png
+      - install -Dm644 icon.png /app/share/icons/hicolor/512x512/apps/io.github.nodus.Nodus.png
+      - install -Dm644 app-icon.svg /app/share/icons/hicolor/scalable/apps/io.github.nodus.Nodus.svg

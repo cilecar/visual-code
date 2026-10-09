@@ -1,0 +1,27 @@
+{
+  "id": "var.get",
+  "title": "Get Var",
+  "category": "variables",
+  "icon": "variable",
+  "kind": "pure",
+  "dynamic": "var-get",
+  "description": "Читает значение переменной.",
+  "params": [
+    {
+      "id": "var",
+      "type": "var",
+      "label": "Переменная"
+    }
+  ],
+  "inputs": [],
+  "outputs": [
+    {
+      "id": "value",
+      "type": "any",
+      "label": "Value"
+    }
+  ],
+  "expr": {
+    "value": "{name.var}"
+  }
+}

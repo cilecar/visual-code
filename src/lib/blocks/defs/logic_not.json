@@ -1,0 +1,25 @@
+{
+  "id": "logic.not",
+  "title": "NOT",
+  "category": "logic",
+  "icon": "circle-slash",
+  "kind": "pure",
+  "inputs": [
+    {
+      "id": "a",
+      "type": "bool",
+      "label": "A",
+      "default": false
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "bool"
+    }
+  ],
+  "expr": {
+    "result": "not {in.a}"
+  },
+  "params": []
+}

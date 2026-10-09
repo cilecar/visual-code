@@ -1,0 +1,31 @@
+{
+  "id": "list.get",
+  "title": "Get Index",
+  "category": "lists",
+  "icon": "list-start",
+  "kind": "pure",
+  "inputs": [
+    {
+      "id": "list",
+      "type": "list",
+      "label": "List",
+      "required": true
+    },
+    {
+      "id": "index",
+      "type": "number",
+      "label": "Index",
+      "default": 0
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "any"
+    }
+  ],
+  "expr": {
+    "result": "{in.list}[{int.index}]"
+  },
+  "params": []
+}

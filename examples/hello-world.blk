@@ -1,0 +1,49 @@
+{
+  "format": "nodus",
+  "schemaVersion": 1,
+  "name": "Hello World",
+  "description": "Самая первая программа.",
+  "variables": [],
+  "functions": [],
+  "main": {
+    "nodes": [
+      {
+        "id": "n1",
+        "type": "block",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "data": {
+          "block": "event.start",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n2",
+        "type": "block",
+        "position": {
+          "x": 240,
+          "y": 0
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {
+            "value": "Hello, World!"
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "n1",
+        "sourceHandle": "out:then",
+        "target": "n2",
+        "targetHandle": "in:exec"
+      }
+    ]
+  }
+}

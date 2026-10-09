@@ -1,0 +1,26 @@
+{
+  "id": "str.length",
+  "title": "String Length",
+  "category": "strings",
+  "icon": "ruler",
+  "kind": "pure",
+  "inputs": [
+    {
+      "id": "text",
+      "type": "string",
+      "label": "Text",
+      "default": ""
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "number",
+      "int": true
+    }
+  ],
+  "expr": {
+    "result": "len({raw.text})"
+  },
+  "params": []
+}

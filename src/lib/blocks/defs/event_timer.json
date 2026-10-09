@@ -1,0 +1,29 @@
+{
+  "id": "event.timer",
+  "title": "On Timer",
+  "category": "events",
+  "icon": "timer",
+  "kind": "event",
+  "description": "Вызывается каждые interval секунд после Start.",
+  "event": {
+    "name": "on_timer",
+    "timer": "interval"
+  },
+  "params": [
+    {
+      "id": "interval",
+      "type": "number",
+      "label": "Интервал, с",
+      "default": 1
+    }
+  ],
+  "inputs": [],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    }
+  ],
+  "code": "{exec.then}"
+}

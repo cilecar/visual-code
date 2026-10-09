@@ -1,0 +1,17 @@
+{
+  "id": "flow.break",
+  "title": "Break",
+  "category": "flow",
+  "icon": "octagon-x",
+  "kind": "exec",
+  "description": "Прерывает ближайший цикл.",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    }
+  ],
+  "outputs": [],
+  "code": "break",
+  "params": []
+}

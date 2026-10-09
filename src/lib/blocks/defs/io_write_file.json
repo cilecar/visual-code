@@ -1,0 +1,34 @@
+{
+  "id": "io.write_file",
+  "title": "Write File",
+  "category": "io",
+  "icon": "file-pen",
+  "kind": "exec",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    },
+    {
+      "id": "path",
+      "type": "string",
+      "label": "Path",
+      "default": "output.txt"
+    },
+    {
+      "id": "content",
+      "type": "any",
+      "label": "Content",
+      "default": ""
+    }
+  ],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    }
+  ],
+  "code": "with open({raw.path}, \"w\", encoding=\"utf-8\") as _file:\n    _file.write(str({raw.content}))\n{exec.then}",
+  "params": []
+}

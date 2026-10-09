@@ -1,0 +1,53 @@
+{
+  "id": "flow.for",
+  "title": "For Range",
+  "category": "flow",
+  "icon": "list-ordered",
+  "kind": "exec",
+  "description": "Цикл по диапазону чисел [start, end) с шагом step.",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    },
+    {
+      "id": "start",
+      "type": "number",
+      "label": "Start",
+      "default": 0
+    },
+    {
+      "id": "end",
+      "type": "number",
+      "label": "End",
+      "default": 10
+    },
+    {
+      "id": "step",
+      "type": "number",
+      "label": "Step",
+      "default": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "body",
+      "type": "exec",
+      "label": "Тело"
+    },
+    {
+      "id": "index",
+      "type": "number",
+      "label": "Index",
+      "varName": "i",
+      "int": true
+    },
+    {
+      "id": "done",
+      "type": "exec",
+      "label": "Готово"
+    }
+  ],
+  "code": "for {out.index} in range({int.start}, {int.end}{opt.step}):\n    {exec.body}\n{exec.done}",
+  "params": []
+}

@@ -1,0 +1,34 @@
+{
+  "id": "flow.if",
+  "title": "If",
+  "category": "flow",
+  "icon": "git-branch",
+  "kind": "exec",
+  "description": "Ветвление по условию.",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    },
+    {
+      "id": "cond",
+      "type": "bool",
+      "label": "Условие",
+      "default": false
+    }
+  ],
+  "outputs": [
+    {
+      "id": "true",
+      "type": "exec",
+      "label": "True"
+    },
+    {
+      "id": "false",
+      "type": "exec",
+      "label": "False"
+    }
+  ],
+  "code": "if {raw.cond}:\n    {exec.true}\n{?exec.false}else:\n{?exec.false}    {exec.false}",
+  "params": []
+}

@@ -1,0 +1,33 @@
+{
+  "id": "flow.sequence",
+  "title": "Sequence",
+  "category": "flow",
+  "icon": "list-tree",
+  "kind": "exec",
+  "description": "Выполняет выходы по порядку.",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "then0",
+      "type": "exec",
+      "label": "0"
+    },
+    {
+      "id": "then1",
+      "type": "exec",
+      "label": "1"
+    },
+    {
+      "id": "then2",
+      "type": "exec",
+      "label": "2"
+    }
+  ],
+  "code": "{exec.then0}\n{exec.then1}\n{exec.then2}",
+  "params": []
+}

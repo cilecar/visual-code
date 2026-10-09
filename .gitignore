@@ -1,0 +1,14 @@
+node_modules
+dist
+src-tauri/target
+src-tauri/gen
+.flatpak-builder
+flatpak/build-dir
+flatpak/repo
+__pycache__
+.pytest_cache
+*.AppImage
+
+# Local tool settings
+.claude/
+.env

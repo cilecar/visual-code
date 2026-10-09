@@ -1,0 +1,31 @@
+{
+  "id": "logic.or",
+  "title": "OR",
+  "category": "logic",
+  "icon": "circle-dot",
+  "kind": "pure",
+  "inputs": [
+    {
+      "id": "a",
+      "type": "bool",
+      "label": "A",
+      "default": false
+    },
+    {
+      "id": "b",
+      "type": "bool",
+      "label": "B",
+      "default": false
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "bool"
+    }
+  ],
+  "expr": {
+    "result": "{in.a} or {in.b}"
+  },
+  "params": []
+}

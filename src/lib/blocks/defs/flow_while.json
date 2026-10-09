@@ -1,0 +1,34 @@
+{
+  "id": "flow.while",
+  "title": "While",
+  "category": "flow",
+  "icon": "repeat",
+  "kind": "exec",
+  "description": "Повторяет тело, пока условие истинно.",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    },
+    {
+      "id": "cond",
+      "type": "bool",
+      "label": "Условие",
+      "default": false
+    }
+  ],
+  "outputs": [
+    {
+      "id": "body",
+      "type": "exec",
+      "label": "Тело"
+    },
+    {
+      "id": "done",
+      "type": "exec",
+      "label": "Готово"
+    }
+  ],
+  "code": "while {raw.cond}:\n    {exec.body}\n{exec.done}",
+  "params": []
+}

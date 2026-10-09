@@ -1,0 +1,37 @@
+{
+  "id": "conv.to_number",
+  "title": "To Number",
+  "category": "math",
+  "icon": "binary",
+  "kind": "pure",
+  "description": "Преобразует значение в число (int или float).",
+  "params": [
+    {
+      "id": "mode",
+      "type": "select",
+      "label": "Тип",
+      "default": "int",
+      "options": [
+        "int",
+        "float"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "value",
+      "type": "any",
+      "label": "Value"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "number",
+      "int": "mode=int"
+    }
+  ],
+  "expr": {
+    "result": "{text.mode}({raw.value})"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "event.start",
+  "title": "Start",
+  "category": "events",
+  "icon": "play",
+  "kind": "event",
+  "description": "Точка входа: выполняется один раз при запуске программы.",
+  "event": {
+    "name": "on_start"
+  },
+  "inputs": [],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    }
+  ],
+  "code": "{exec.then}",
+  "params": []
+}

@@ -1,0 +1,29 @@
+{
+  "id": "io.print",
+  "title": "Print",
+  "category": "io",
+  "icon": "terminal",
+  "kind": "exec",
+  "description": "Выводит значение в Output.",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    },
+    {
+      "id": "value",
+      "type": "any",
+      "label": "Value",
+      "default": "Hello, World!"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    }
+  ],
+  "code": "print({raw.value})\n{exec.then}",
+  "params": []
+}

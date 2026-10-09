@@ -1,0 +1,41 @@
+{
+  "id": "var.set",
+  "title": "Set Var",
+  "category": "variables",
+  "icon": "pencil",
+  "kind": "exec",
+  "dynamic": "var-set",
+  "description": "Присваивает значение переменной.",
+  "params": [
+    {
+      "id": "var",
+      "type": "var",
+      "label": "Переменная"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    },
+    {
+      "id": "value",
+      "type": "any",
+      "label": "Value"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    },
+    {
+      "id": "value",
+      "type": "any",
+      "label": "Value",
+      "expr": "{name.var}"
+    }
+  ],
+  "code": "{name.var} = {raw.value}\n{exec.then}"
+}

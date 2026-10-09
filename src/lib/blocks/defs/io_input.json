@@ -1,0 +1,35 @@
+{
+  "id": "io.input",
+  "title": "Input",
+  "category": "io",
+  "icon": "keyboard",
+  "kind": "exec",
+  "description": "Запрашивает строку у пользователя.",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    },
+    {
+      "id": "prompt",
+      "type": "string",
+      "label": "Prompt",
+      "default": "> "
+    }
+  ],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    },
+    {
+      "id": "text",
+      "type": "string",
+      "label": "Text",
+      "varName": "answer"
+    }
+  ],
+  "code": "{out.text} = input({raw.prompt})\n{exec.then}",
+  "params": []
+}

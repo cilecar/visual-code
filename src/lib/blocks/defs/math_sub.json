@@ -1,0 +1,31 @@
+{
+  "id": "math.sub",
+  "title": "Subtract  −",
+  "category": "math",
+  "icon": "minus",
+  "kind": "pure",
+  "inputs": [
+    {
+      "id": "a",
+      "type": "number",
+      "label": "A",
+      "default": 0
+    },
+    {
+      "id": "b",
+      "type": "number",
+      "label": "B",
+      "default": 0
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "number"
+    }
+  ],
+  "expr": {
+    "result": "{in.a} - {in.b}"
+  },
+  "params": []
+}

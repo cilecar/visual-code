@@ -1,0 +1,39 @@
+{
+  "id": "flow.foreach",
+  "title": "For Each",
+  "category": "flow",
+  "icon": "list",
+  "kind": "exec",
+  "description": "Цикл по элементам списка.",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    },
+    {
+      "id": "list",
+      "type": "list",
+      "label": "List"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "body",
+      "type": "exec",
+      "label": "Тело"
+    },
+    {
+      "id": "item",
+      "type": "any",
+      "label": "Item",
+      "varName": "item"
+    },
+    {
+      "id": "done",
+      "type": "exec",
+      "label": "Готово"
+    }
+  ],
+  "code": "for {out.item} in {raw.list}:\n    {exec.body}\n{exec.done}",
+  "params": []
+}

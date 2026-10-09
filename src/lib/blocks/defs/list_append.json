@@ -1,0 +1,34 @@
+{
+  "id": "list.append",
+  "title": "Append",
+  "category": "lists",
+  "icon": "list-plus",
+  "kind": "exec",
+  "description": "Добавляет элемент в конец списка (изменяет список).",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    },
+    {
+      "id": "list",
+      "type": "list",
+      "label": "List",
+      "required": true
+    },
+    {
+      "id": "item",
+      "type": "any",
+      "label": "Item"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    }
+  ],
+  "code": "{in.list}.append({raw.item})\n{exec.then}",
+  "params": []
+}

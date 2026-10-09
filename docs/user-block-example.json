@@ -1,0 +1,15 @@
+{
+  "id": "user.clamp",
+  "title": "Clamp",
+  "category": "math",
+  "icon": "arrow-down-up",
+  "kind": "pure",
+  "description": "Ограничивает число диапазоном [lo, hi].",
+  "inputs": [
+    { "id": "x", "type": "number", "label": "X", "default": 0 },
+    { "id": "lo", "type": "number", "label": "Min", "default": 0 },
+    { "id": "hi", "type": "number", "label": "Max", "default": 10 }
+  ],
+  "outputs": [{ "id": "result", "type": "number", "label": "Result" }],
+  "expr": { "result": "max({raw.lo}, min({raw.hi}, {raw.x}))" }
+}

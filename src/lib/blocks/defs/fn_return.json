@@ -1,0 +1,19 @@
+{
+  "id": "fn.return",
+  "title": "Return",
+  "category": "functions",
+  "icon": "log-out",
+  "kind": "exec",
+  "dynamic": "fn-return",
+  "hidden": true,
+  "description": "Выход функции.",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    }
+  ],
+  "outputs": [],
+  "code": "{return}",
+  "params": []
+}

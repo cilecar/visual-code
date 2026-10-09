@@ -1,0 +1,25 @@
+{
+  "id": "lit.number",
+  "title": "Number",
+  "category": "math",
+  "icon": "hash",
+  "kind": "pure",
+  "params": [
+    {
+      "id": "value",
+      "type": "number",
+      "label": "Значение",
+      "default": 0
+    }
+  ],
+  "inputs": [],
+  "outputs": [
+    {
+      "id": "value",
+      "type": "number"
+    }
+  ],
+  "expr": {
+    "value": "{param.value}"
+  }
+}

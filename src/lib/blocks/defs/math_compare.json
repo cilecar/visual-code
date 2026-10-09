@@ -1,0 +1,47 @@
+{
+  "id": "math.compare",
+  "title": "Compare",
+  "category": "logic",
+  "icon": "equal",
+  "kind": "pure",
+  "description": "Сравнение двух чисел.",
+  "params": [
+    {
+      "id": "op",
+      "type": "select",
+      "label": "Оператор",
+      "default": "<",
+      "options": [
+        "==",
+        "!=",
+        "<",
+        "<=",
+        ">",
+        ">="
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "a",
+      "type": "number",
+      "label": "A",
+      "default": 0
+    },
+    {
+      "id": "b",
+      "type": "number",
+      "label": "B",
+      "default": 0
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "bool"
+    }
+  ],
+  "expr": {
+    "result": "{in.a} {text.op} {in.b}"
+  }
+}

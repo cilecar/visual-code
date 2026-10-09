@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.nodus.Nodus</id>
+  <launchable type="desktop-id">io.github.nodus.Nodus.desktop</launchable>
+  <name>Nodus</name>
+  <summary>Visual programming with node blocks</summary>
+  <developer id="io.github.nodus">
+    <name>Nodus contributors</name>
+  </developer>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <content_rating type="oars-1.1"/>
+  <description>
+    <p>
+      Nodus lets you build programs on an infinite canvas from blocks connected by wires,
+      in the spirit of Unreal Blueprints and Node-RED. Graphs compile to readable Python 3,
+      and while a program runs you can see which block and which line of code is executing,
+      step through it, set breakpoints and inspect variables.
+    </p>
+  </description>
+  <keywords>
+    <keyword>visual programming</keyword>
+    <keyword>nodes</keyword>
+    <keyword>python</keyword>
+  </keywords>
+  <branding>
+    <color type="primary" scheme_preference="dark">#0d0f14</color>
+  </branding>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+  <requires>
+    <display_length compare="ge">900</display_length>
+  </requires>
+  <releases>
+    <release version="0.1.0" date="2026-10-05"/>
+  </releases>
+</component>

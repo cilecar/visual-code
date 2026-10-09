@@ -1,0 +1,25 @@
+{
+  "id": "lit.string",
+  "title": "Text",
+  "category": "strings",
+  "icon": "quote",
+  "kind": "pure",
+  "params": [
+    {
+      "id": "value",
+      "type": "string",
+      "label": "Значение",
+      "default": ""
+    }
+  ],
+  "inputs": [],
+  "outputs": [
+    {
+      "id": "value",
+      "type": "string"
+    }
+  ],
+  "expr": {
+    "value": "{param.value}"
+  }
+}

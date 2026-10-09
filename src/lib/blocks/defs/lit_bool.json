@@ -1,0 +1,25 @@
+{
+  "id": "lit.bool",
+  "title": "Boolean",
+  "category": "logic",
+  "icon": "toggle-left",
+  "kind": "pure",
+  "params": [
+    {
+      "id": "value",
+      "type": "bool",
+      "label": "Значение",
+      "default": true
+    }
+  ],
+  "inputs": [],
+  "outputs": [
+    {
+      "id": "value",
+      "type": "bool"
+    }
+  ],
+  "expr": {
+    "value": "{param.value}"
+  }
+}

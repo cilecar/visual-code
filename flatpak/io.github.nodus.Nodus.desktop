@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Nodus
+GenericName=Visual programming
+Comment=Build programs from node blocks and watch them run
+Exec=nodus %f
+Icon=io.github.nodus.Nodus
+Terminal=false
+Categories=Development;IDE;Education;
+MimeType=application/x-nodus-graph;
+Keywords=visual;programming;nodes;blueprint;python;
+StartupWMClass=nodus

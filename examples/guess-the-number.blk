@@ -1,0 +1,601 @@
+{
+  "format": "nodus",
+  "schemaVersion": 1,
+  "name": "Угадай число",
+  "description": "Компьютер загадывает число от 1 до 100, вы угадываете.",
+  "variables": [
+    {
+      "name": "secret",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "guess",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "tries",
+      "type": "number",
+      "value": 0
+    }
+  ],
+  "functions": [],
+  "main": {
+    "nodes": [
+      {
+        "id": "c26",
+        "type": "comment",
+        "position": {
+          "x": 950,
+          "y": -190
+        },
+        "width": 1960,
+        "height": 580,
+        "data": {
+          "title": "Игровой цикл: пока не угадали",
+          "color": "#30a46c"
+        }
+      },
+      {
+        "id": "n1",
+        "type": "block",
+        "position": {
+          "x": -240,
+          "y": 0
+        },
+        "data": {
+          "block": "event.start",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n2",
+        "type": "block",
+        "position": {
+          "x": -260,
+          "y": 140
+        },
+        "data": {
+          "block": "math.random",
+          "params": {},
+          "inputs": {
+            "min": 1,
+            "max": 100
+          }
+        }
+      },
+      {
+        "id": "n3",
+        "type": "block",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "data": {
+          "block": "var.set",
+          "params": {
+            "var": "secret"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n4",
+        "type": "block",
+        "position": {
+          "x": 240,
+          "y": 0
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {
+            "value": "Я загадал число от 1 до 100. Угадай!"
+          }
+        }
+      },
+      {
+        "id": "n5",
+        "type": "block",
+        "position": {
+          "x": 280,
+          "y": 170
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "guess"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n6",
+        "type": "block",
+        "position": {
+          "x": 280,
+          "y": 280
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "secret"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n7",
+        "type": "block",
+        "position": {
+          "x": 480,
+          "y": 190
+        },
+        "data": {
+          "block": "math.compare",
+          "params": {
+            "op": "!="
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n8",
+        "type": "block",
+        "position": {
+          "x": 720,
+          "y": 0
+        },
+        "data": {
+          "block": "flow.while",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n9",
+        "type": "block",
+        "position": {
+          "x": 980,
+          "y": 0
+        },
+        "data": {
+          "block": "io.input",
+          "params": {},
+          "inputs": {
+            "prompt": "Ваш вариант: "
+          }
+        }
+      },
+      {
+        "id": "n10",
+        "type": "block",
+        "position": {
+          "x": 1000,
+          "y": 170
+        },
+        "data": {
+          "block": "conv.to_number",
+          "params": {
+            "mode": "int"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n11",
+        "type": "block",
+        "position": {
+          "x": 1260,
+          "y": 0
+        },
+        "data": {
+          "block": "var.set",
+          "params": {
+            "var": "guess"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n12",
+        "type": "block",
+        "position": {
+          "x": 1260,
+          "y": 170
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "tries"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n13",
+        "type": "block",
+        "position": {
+          "x": 1460,
+          "y": 170
+        },
+        "data": {
+          "block": "math.add",
+          "params": {},
+          "inputs": {
+            "b": 1
+          }
+        }
+      },
+      {
+        "id": "n14",
+        "type": "block",
+        "position": {
+          "x": 1700,
+          "y": 0
+        },
+        "data": {
+          "block": "var.set",
+          "params": {
+            "var": "tries"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n15",
+        "type": "block",
+        "position": {
+          "x": 1700,
+          "y": 180
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "guess"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n16",
+        "type": "block",
+        "position": {
+          "x": 1700,
+          "y": 290
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "secret"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n17",
+        "type": "block",
+        "position": {
+          "x": 1920,
+          "y": 170
+        },
+        "data": {
+          "block": "math.compare",
+          "params": {
+            "op": "<"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n18",
+        "type": "block",
+        "position": {
+          "x": 1920,
+          "y": 300
+        },
+        "data": {
+          "block": "math.compare",
+          "params": {
+            "op": ">"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n19",
+        "type": "block",
+        "position": {
+          "x": 2160,
+          "y": 0
+        },
+        "data": {
+          "block": "flow.if",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n20",
+        "type": "block",
+        "position": {
+          "x": 2400,
+          "y": -130
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {
+            "value": "Больше!"
+          }
+        }
+      },
+      {
+        "id": "n21",
+        "type": "block",
+        "position": {
+          "x": 2400,
+          "y": 40
+        },
+        "data": {
+          "block": "flow.if",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n22",
+        "type": "block",
+        "position": {
+          "x": 2640,
+          "y": 40
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {
+            "value": "Меньше!"
+          }
+        }
+      },
+      {
+        "id": "n23",
+        "type": "block",
+        "position": {
+          "x": 760,
+          "y": 430
+        },
+        "data": {
+          "block": "var.get",
+          "params": {
+            "var": "tries"
+          },
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n24",
+        "type": "block",
+        "position": {
+          "x": 960,
+          "y": 400
+        },
+        "data": {
+          "block": "str.format",
+          "params": {
+            "count": 1
+          },
+          "inputs": {
+            "template": "Угадано за {0} попыток!"
+          }
+        }
+      },
+      {
+        "id": "n25",
+        "type": "block",
+        "position": {
+          "x": 1240,
+          "y": 330
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {}
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "n1",
+        "sourceHandle": "out:then",
+        "target": "n3",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e2",
+        "source": "n2",
+        "sourceHandle": "out:result",
+        "target": "n3",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e3",
+        "source": "n3",
+        "sourceHandle": "out:then",
+        "target": "n4",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e4",
+        "source": "n4",
+        "sourceHandle": "out:then",
+        "target": "n8",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e5",
+        "source": "n5",
+        "sourceHandle": "out:value",
+        "target": "n7",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e6",
+        "source": "n6",
+        "sourceHandle": "out:value",
+        "target": "n7",
+        "targetHandle": "in:b"
+      },
+      {
+        "id": "e7",
+        "source": "n7",
+        "sourceHandle": "out:result",
+        "target": "n8",
+        "targetHandle": "in:cond"
+      },
+      {
+        "id": "e8",
+        "source": "n8",
+        "sourceHandle": "out:body",
+        "target": "n9",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e9",
+        "source": "n9",
+        "sourceHandle": "out:then",
+        "target": "n11",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e10",
+        "source": "n9",
+        "sourceHandle": "out:text",
+        "target": "n10",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e11",
+        "source": "n10",
+        "sourceHandle": "out:result",
+        "target": "n11",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e12",
+        "source": "n11",
+        "sourceHandle": "out:then",
+        "target": "n14",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e13",
+        "source": "n12",
+        "sourceHandle": "out:value",
+        "target": "n13",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e14",
+        "source": "n13",
+        "sourceHandle": "out:result",
+        "target": "n14",
+        "targetHandle": "in:value"
+      },
+      {
+        "id": "e15",
+        "source": "n14",
+        "sourceHandle": "out:then",
+        "target": "n19",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e16",
+        "source": "n15",
+        "sourceHandle": "out:value",
+        "target": "n17",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e17",
+        "source": "n16",
+        "sourceHandle": "out:value",
+        "target": "n17",
+        "targetHandle": "in:b"
+      },
+      {
+        "id": "e18",
+        "source": "n17",
+        "sourceHandle": "out:result",
+        "target": "n19",
+        "targetHandle": "in:cond"
+      },
+      {
+        "id": "e19",
+        "source": "n15",
+        "sourceHandle": "out:value",
+        "target": "n18",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e20",
+        "source": "n16",
+        "sourceHandle": "out:value",
+        "target": "n18",
+        "targetHandle": "in:b"
+      },
+      {
+        "id": "e21",
+        "source": "n19",
+        "sourceHandle": "out:true",
+        "target": "n20",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e22",
+        "source": "n19",
+        "sourceHandle": "out:false",
+        "target": "n21",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e23",
+        "source": "n18",
+        "sourceHandle": "out:result",
+        "target": "n21",
+        "targetHandle": "in:cond"
+      },
+      {
+        "id": "e24",
+        "source": "n21",
+        "sourceHandle": "out:true",
+        "target": "n22",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e25",
+        "source": "n8",
+        "sourceHandle": "out:done",
+        "target": "n25",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e26",
+        "source": "n23",
+        "sourceHandle": "out:value",
+        "target": "n24",
+        "targetHandle": "in:arg0"
+      },
+      {
+        "id": "e27",
+        "source": "n24",
+        "sourceHandle": "out:result",
+        "target": "n25",
+        "targetHandle": "in:value"
+      }
+    ]
+  }
+}

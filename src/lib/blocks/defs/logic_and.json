@@ -1,0 +1,31 @@
+{
+  "id": "logic.and",
+  "title": "AND",
+  "category": "logic",
+  "icon": "ampersand",
+  "kind": "pure",
+  "inputs": [
+    {
+      "id": "a",
+      "type": "bool",
+      "label": "A",
+      "default": false
+    },
+    {
+      "id": "b",
+      "type": "bool",
+      "label": "B",
+      "default": false
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "bool"
+    }
+  ],
+  "expr": {
+    "result": "{in.a} and {in.b}"
+  },
+  "params": []
+}

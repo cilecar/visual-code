@@ -1,0 +1,24 @@
+{
+  "id": "conv.to_string",
+  "title": "To String",
+  "category": "strings",
+  "icon": "type",
+  "kind": "pure",
+  "inputs": [
+    {
+      "id": "value",
+      "type": "any",
+      "label": "Value"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "string"
+    }
+  ],
+  "expr": {
+    "result": "str({raw.value})"
+  },
+  "params": []
+}

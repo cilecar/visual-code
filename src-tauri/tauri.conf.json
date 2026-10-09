@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Nodus",
+  "version": "0.1.0",
+  "identifier": "io.github.nodus.Nodus",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Nodus",
+        "width": 1440,
+        "height": 900,
+        "minWidth": 900,
+        "minHeight": 560,
+        "backgroundColor": "#0d0f14",
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "rpm",
+      "appimage",
+      "deb"
+    ],
+    "category": "DeveloperTool",
+    "shortDescription": "Визуальное программирование блоками",
+    "longDescription": "Собирайте программы из блоков-нод на бесконечном холсте, компилируйте их в Python и смотрите, как они выполняются.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.png"
+    ],
+    "fileAssociations": [
+      {
+        "ext": [
+          "blk"
+        ],
+        "name": "Nodus graph",
+        "description": "Nodus block graph",
+        "mimeType": "application/x-nodus-graph",
+        "role": "Editor"
+      }
+    ],
+    "linux": {
+      "rpm": {
+        "depends": [
+          "python3",
+          "webkit2gtk4.1"
+        ],
+        "release": "1",
+        "files": {
+          "/usr/share/metainfo/io.github.nodus.Nodus.metainfo.xml": "../flatpak/io.github.nodus.Nodus.metainfo.xml"
+        }
+      },
+      "deb": {
+        "depends": [
+          "python3"
+        ],
+        "files": {
+          "/usr/share/metainfo/io.github.nodus.Nodus.metainfo.xml": "../flatpak/io.github.nodus.Nodus.metainfo.xml"
+        }
+      },
+      "appimage": {
+        "bundleMediaFramework": false
+      }
+    }
+  }
+}

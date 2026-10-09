@@ -1,0 +1,26 @@
+{
+  "id": "list.length",
+  "title": "List Length",
+  "category": "lists",
+  "icon": "ruler",
+  "kind": "pure",
+  "inputs": [
+    {
+      "id": "list",
+      "type": "list",
+      "label": "List",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "number",
+      "int": true
+    }
+  ],
+  "expr": {
+    "result": "len({raw.list})"
+  },
+  "params": []
+}

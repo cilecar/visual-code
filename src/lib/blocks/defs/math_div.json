@@ -1,0 +1,31 @@
+{
+  "id": "math.div",
+  "title": "Divide  ÷",
+  "category": "math",
+  "icon": "divide",
+  "kind": "pure",
+  "inputs": [
+    {
+      "id": "a",
+      "type": "number",
+      "label": "A",
+      "default": 0
+    },
+    {
+      "id": "b",
+      "type": "number",
+      "label": "B",
+      "default": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "number"
+    }
+  ],
+  "expr": {
+    "result": "{in.a} / {in.b}"
+  },
+  "params": []
+}

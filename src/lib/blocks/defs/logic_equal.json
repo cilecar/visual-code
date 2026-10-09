@@ -1,0 +1,30 @@
+{
+  "id": "logic.equal",
+  "title": "Equal",
+  "category": "logic",
+  "icon": "equal",
+  "kind": "pure",
+  "description": "Проверка равенства любых значений.",
+  "inputs": [
+    {
+      "id": "a",
+      "type": "any",
+      "label": "A"
+    },
+    {
+      "id": "b",
+      "type": "any",
+      "label": "B"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "bool"
+    }
+  ],
+  "expr": {
+    "result": "{in.a} == {in.b}"
+  },
+  "params": []
+}

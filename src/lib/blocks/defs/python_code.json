@@ -1,0 +1,31 @@
+{
+  "id": "python.code",
+  "title": "Python Code",
+  "category": "python",
+  "icon": "code",
+  "kind": "exec",
+  "dynamic": "python",
+  "description": "Произвольный Python-код с настраиваемыми входами и выходами.",
+  "params": [
+    {
+      "id": "code",
+      "type": "code",
+      "label": "Код",
+      "default": "result = a * 2"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    }
+  ],
+  "code": "{python}\n{exec.then}"
+}

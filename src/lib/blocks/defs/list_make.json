@@ -1,0 +1,31 @@
+{
+  "id": "list.make",
+  "title": "Make List",
+  "category": "lists",
+  "icon": "layers",
+  "kind": "pure",
+  "params": [
+    {
+      "id": "count",
+      "type": "number",
+      "label": "Элементов",
+      "default": 3
+    }
+  ],
+  "variadic": {
+    "param": "count",
+    "prefix": "item",
+    "type": "any",
+    "label": "Item"
+  },
+  "inputs": [],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "list"
+    }
+  ],
+  "expr": {
+    "result": "[{join}]"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "fn.entry",
+  "title": "Inputs",
+  "category": "functions",
+  "icon": "log-in",
+  "kind": "event",
+  "dynamic": "fn-entry",
+  "hidden": true,
+  "description": "Вход функции.",
+  "inputs": [],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    }
+  ],
+  "code": "{exec.then}",
+  "params": []
+}

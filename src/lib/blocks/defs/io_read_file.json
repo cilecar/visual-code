@@ -1,0 +1,34 @@
+{
+  "id": "io.read_file",
+  "title": "Read File",
+  "category": "io",
+  "icon": "file-text",
+  "kind": "exec",
+  "inputs": [
+    {
+      "id": "exec",
+      "type": "exec"
+    },
+    {
+      "id": "path",
+      "type": "string",
+      "label": "Path",
+      "default": "input.txt"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "then",
+      "type": "exec",
+      "label": ""
+    },
+    {
+      "id": "content",
+      "type": "string",
+      "label": "Content",
+      "varName": "content"
+    }
+  ],
+  "code": "with open({raw.path}, encoding=\"utf-8\") as _file:\n    {out.content} = _file.read()\n{exec.then}",
+  "params": []
+}

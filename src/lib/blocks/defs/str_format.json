@@ -1,0 +1,39 @@
+{
+  "id": "str.format",
+  "title": "Format",
+  "category": "strings",
+  "icon": "brackets",
+  "kind": "pure",
+  "description": "Подставляет аргументы в шаблон: \"{0} + {1}\".",
+  "params": [
+    {
+      "id": "count",
+      "type": "number",
+      "label": "Аргументов",
+      "default": 2
+    }
+  ],
+  "variadic": {
+    "param": "count",
+    "prefix": "arg",
+    "type": "any",
+    "label": "Arg"
+  },
+  "inputs": [
+    {
+      "id": "template",
+      "type": "string",
+      "label": "Template",
+      "default": "{0} {1}"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "string"
+    }
+  ],
+  "expr": {
+    "result": "{in.template}.format({join})"
+  }
+}

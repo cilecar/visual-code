@@ -1,0 +1,376 @@
+{
+  "format": "nodus",
+  "schemaVersion": 1,
+  "name": "FizzBuzz",
+  "description": "Числа от 1 до 100: Fizz для кратных 3, Buzz для кратных 5.",
+  "variables": [],
+  "functions": [],
+  "main": {
+    "nodes": [
+      {
+        "id": "c16",
+        "type": "comment",
+        "position": {
+          "x": 450,
+          "y": -210
+        },
+        "width": 1940,
+        "height": 520,
+        "data": {
+          "title": "Проверяем делимость на 15, 3 и 5",
+          "color": "#3e8ed0"
+        }
+      },
+      {
+        "id": "n1",
+        "type": "block",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "data": {
+          "block": "event.start",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n2",
+        "type": "block",
+        "position": {
+          "x": 220,
+          "y": 0
+        },
+        "data": {
+          "block": "flow.for",
+          "params": {},
+          "inputs": {
+            "start": 1,
+            "end": 101
+          }
+        }
+      },
+      {
+        "id": "n3",
+        "type": "block",
+        "position": {
+          "x": 480,
+          "y": 200
+        },
+        "data": {
+          "block": "math.mod",
+          "params": {},
+          "inputs": {
+            "b": 15
+          }
+        }
+      },
+      {
+        "id": "n4",
+        "type": "block",
+        "position": {
+          "x": 700,
+          "y": 200
+        },
+        "data": {
+          "block": "math.compare",
+          "params": {
+            "op": "=="
+          },
+          "inputs": {
+            "b": 0
+          }
+        }
+      },
+      {
+        "id": "n5",
+        "type": "block",
+        "position": {
+          "x": 900,
+          "y": 0
+        },
+        "data": {
+          "block": "flow.if",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n6",
+        "type": "block",
+        "position": {
+          "x": 1100,
+          "y": -150
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {
+            "value": "FizzBuzz"
+          }
+        }
+      },
+      {
+        "id": "n7",
+        "type": "block",
+        "position": {
+          "x": 1080,
+          "y": 200
+        },
+        "data": {
+          "block": "math.mod",
+          "params": {},
+          "inputs": {
+            "b": 3
+          }
+        }
+      },
+      {
+        "id": "n8",
+        "type": "block",
+        "position": {
+          "x": 1300,
+          "y": 200
+        },
+        "data": {
+          "block": "math.compare",
+          "params": {
+            "op": "=="
+          },
+          "inputs": {
+            "b": 0
+          }
+        }
+      },
+      {
+        "id": "n9",
+        "type": "block",
+        "position": {
+          "x": 1500,
+          "y": 0
+        },
+        "data": {
+          "block": "flow.if",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n10",
+        "type": "block",
+        "position": {
+          "x": 1700,
+          "y": -150
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {
+            "value": "Fizz"
+          }
+        }
+      },
+      {
+        "id": "n11",
+        "type": "block",
+        "position": {
+          "x": 1680,
+          "y": 200
+        },
+        "data": {
+          "block": "math.mod",
+          "params": {},
+          "inputs": {
+            "b": 5
+          }
+        }
+      },
+      {
+        "id": "n12",
+        "type": "block",
+        "position": {
+          "x": 1900,
+          "y": 200
+        },
+        "data": {
+          "block": "math.compare",
+          "params": {
+            "op": "=="
+          },
+          "inputs": {
+            "b": 0
+          }
+        }
+      },
+      {
+        "id": "n13",
+        "type": "block",
+        "position": {
+          "x": 2100,
+          "y": 0
+        },
+        "data": {
+          "block": "flow.if",
+          "params": {},
+          "inputs": {}
+        }
+      },
+      {
+        "id": "n14",
+        "type": "block",
+        "position": {
+          "x": 2300,
+          "y": -150
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {
+            "value": "Buzz"
+          }
+        }
+      },
+      {
+        "id": "n15",
+        "type": "block",
+        "position": {
+          "x": 2320,
+          "y": 80
+        },
+        "data": {
+          "block": "io.print",
+          "params": {},
+          "inputs": {}
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "source": "n1",
+        "sourceHandle": "out:then",
+        "target": "n2",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e2",
+        "source": "n2",
+        "sourceHandle": "out:index",
+        "target": "n3",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e3",
+        "source": "n3",
+        "sourceHandle": "out:result",
+        "target": "n4",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e4",
+        "source": "n4",
+        "sourceHandle": "out:result",
+        "target": "n5",
+        "targetHandle": "in:cond"
+      },
+      {
+        "id": "e5",
+        "source": "n5",
+        "sourceHandle": "out:true",
+        "target": "n6",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e6",
+        "source": "n2",
+        "sourceHandle": "out:body",
+        "target": "n5",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e7",
+        "source": "n2",
+        "sourceHandle": "out:index",
+        "target": "n7",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e8",
+        "source": "n7",
+        "sourceHandle": "out:result",
+        "target": "n8",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e9",
+        "source": "n8",
+        "sourceHandle": "out:result",
+        "target": "n9",
+        "targetHandle": "in:cond"
+      },
+      {
+        "id": "e10",
+        "source": "n9",
+        "sourceHandle": "out:true",
+        "target": "n10",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e11",
+        "source": "n5",
+        "sourceHandle": "out:false",
+        "target": "n9",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e12",
+        "source": "n2",
+        "sourceHandle": "out:index",
+        "target": "n11",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e13",
+        "source": "n11",
+        "sourceHandle": "out:result",
+        "target": "n12",
+        "targetHandle": "in:a"
+      },
+      {
+        "id": "e14",
+        "source": "n12",
+        "sourceHandle": "out:result",
+        "target": "n13",
+        "targetHandle": "in:cond"
+      },
+      {
+        "id": "e15",
+        "source": "n13",
+        "sourceHandle": "out:true",
+        "target": "n14",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e16",
+        "source": "n9",
+        "sourceHandle": "out:false",
+        "target": "n13",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e17",
+        "source": "n13",
+        "sourceHandle": "out:false",
+        "target": "n15",
+        "targetHandle": "in:exec"
+      },
+      {
+        "id": "e18",
+        "source": "n2",
+        "sourceHandle": "out:index",
+        "target": "n15",
+        "targetHandle": "in:value"
+      }
+    ]
+  }
+}

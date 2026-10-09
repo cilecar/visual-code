@@ -1,0 +1,31 @@
+{
+  "id": "str.split",
+  "title": "Split",
+  "category": "strings",
+  "icon": "scissors",
+  "kind": "pure",
+  "inputs": [
+    {
+      "id": "text",
+      "type": "string",
+      "label": "Text",
+      "default": ""
+    },
+    {
+      "id": "sep",
+      "type": "string",
+      "label": "Separator",
+      "default": " "
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "type": "list"
+    }
+  ],
+  "expr": {
+    "result": "{in.text}.split({raw.sep})"
+  },
+  "params": []
+}
